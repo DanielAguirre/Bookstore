@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js",
-    "lint": "#🚀\n node ./node_modules/eslint/bin/eslint.js \"server/**/*.js\" \tests/**/*.js. --config=./.eslintrc.json"
+    "lint": "#🚀\n eslint \"server/**/*.js\" \tests/**/*.js. --config=./.eslintrc.json"
   },
   "repository": {
     "type": "git",
