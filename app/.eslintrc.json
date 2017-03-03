@@ -1,0 +1,24 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "airbnb-base"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-dupe-keys": 2,
+    "array-bracket-spacing": 0,
+    "max-len": 0,
+    "strict": 0,
+    "no-useless-concat": 0,
+    "no-param-reassign": 0,
+    "import/no-extraneous-dependencies": [ "error", { "devDependencies": true, "optionalDependencies": false, "peerDependencies": false }]
+  },
+  "env": {
+    "node": true,
+    "es6": true,
+    "mocha": true
+  }
+}
