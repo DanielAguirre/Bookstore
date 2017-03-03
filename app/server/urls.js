@@ -1,5 +1,5 @@
-const webapp = require('./webapp/routes')
+const webapp = require('./webapp/routes');
 
 module.exports = {
   '': webapp,
-}
+};
