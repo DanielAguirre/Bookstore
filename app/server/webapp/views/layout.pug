@@ -1,9 +1,27 @@
 html
-  title= title
+  title= pageTitle
   block script
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js")
+    script(src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js")
+    script(src='/js/views.js')
+    script(src='/js/controller.js')
+    script(src='/js/app.js')
+
   block style
-    link(rel='stylesheet', href='css/app.css')
+    link(rel='stylesheet', href='/css/index.css')
   body
-    block content
+    nav
+      ul
+        li
+          a(href='/') Home
+        li
+          a(href='/add') Add book
+        li
+          a User
+    div.banner
+      h1.banner-title Bookstore
+    div.content
+      block content
     block foot
+      footer
     

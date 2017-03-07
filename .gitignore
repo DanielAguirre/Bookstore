@@ -1,5 +1,17 @@
 #Dependencies
 node_modules
 
-@logs
+#logs
 npm-debug.log
+
+#test
+jest
+
+#bd
+mockgoose
+
+#coverage
+coverage
+
+#OS
+.DS_Store

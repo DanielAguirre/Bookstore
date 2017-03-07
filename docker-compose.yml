@@ -1,7 +1,13 @@
 bookstore:  
   build: .
-  command: sh -c 'npm install; npm start'
+  command: sh -c 'npm run build; npm start'
   ports: 
     - '3000:3000'
   volumes:
     - ./app:/app
+  links:
+    - MongoDB
+MongoDB:
+  image: mongo:3.4.1
+  ports:
+    - "27017:27017"
