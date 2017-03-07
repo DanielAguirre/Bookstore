@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "start": "nodemon app.js",
-    "lint": "#🚀\n node ./node_modules/eslint/bin/eslint.js \"server/**/*.js\" \tests/**/*.js. --config=./.eslintrc.json"
+    "lint": "#🚀\n node ./node_modules/eslint/bin/eslint.js \"server/**/*.js\" \tests/**/*.js. --config=./.eslintrc.json",
+    "build": "npm i && cd public && npm i && npm run build:css"
   },
   "repository": {
     "type": "git",
@@ -20,13 +21,35 @@
   },
   "homepage": "https://github.com/DanielAguirre/Bookstore#readme",
   "devDependencies": {
+    "eslint": "^3.17.0",
+    "eslint-config-airbnb-base": "^11.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "jest-cli": "^19.0.2",
+    "mockgoose": "^7.0.5",
     "nodemon": "^1.11.0",
+    "supertest": "^3.0.0",
+    "supertest-as-promised": "^4.0.2",
     "webpack": "^2.2.1"
   },
   "dependencies": {
+    "body-parser": "^1.17.0",
     "express": "^4.14.1",
-    "pug": "^2.0.0-beta11",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "mongoose": "^4.8.5",
+    "mongoose-currency": "^0.2.0",
+    "pug": "^2.0.0-beta11"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": [
+      "server/**/*.js"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 50,
+        "lines": 33,
+        "statements": 85
+      }
+    }
   }
 }

@@ -1,4 +1,17 @@
 extends layout.pug
 block content
-    h1 message
-    div.content
+  dob.search
+    input#searchTitle.search-input(placeholder='Title')
+    input#searchAuthor.search-input(placeholder='Author')
+    input#searchPrice.search-input(placeholder='Price')
+    button#search.search-query Search
+  each book in books
+    div.book
+      div.book-cover
+        img
+      div.book-content
+        p.book-title= book.title
+        p.book-autho= book.author
+        p.book-price= book.price
+        p.book-publication= book.date
+        a.book-edit(href="/edit/" + book._id) Edit

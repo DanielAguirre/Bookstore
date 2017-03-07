@@ -2,9 +2,10 @@ extends layout.pug
 block content
     div.form
       h3 Add A new Book to the Catalog
-      form(method='POST' action='/api/book')
+      form#createBook(method='POST' action='/api/book')
+        input#id(type="hidden" value= book._id)
         label(for="title") Title
-        input#title(placeholder=Title value= book.title)
+        input#title(placeholder=Title value= book.title required)
         
         label(for="author") Author
         select#author
@@ -15,16 +16,16 @@ block content
                 option(value=author)= author
         
         label(for="publication") Publication
-        input#publication(type="date" placeholder=Publication value= book.publication)
+        input#publication(type="date" placeholder=Publication value= book.date required)
 
         label(for="isbn") ISBN
-        input#isbn(placeholder=ISBN value= book.isbn)
+        input#isbn(placeholder=ISBN value= book.ISBN required maxlength="13")
         
         label(for="price") Price
-        input#price(placeholder=Price type="number" step='1.00' min=1.00, value= book.price)
+        input#price(placeholder=Price type="number" step='0.01' min=1.00, value= book.price required)
         
-        label.image(for="image")
-        input#image(type="file"  accept="image/jpeg, image/png image/jpg")
+        //label.image(for="image")
+        //#input#image(type="file"  accept="image/jpeg, image/png image/jpg" required)
         
         button#save(type='submmit') Save
 
