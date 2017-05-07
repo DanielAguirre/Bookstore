@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const middlewares = require('./middlewares');
 const urls = require('./urls');
 
@@ -10,6 +11,9 @@ const ExpressServer = function () {
 
   // midlewares
   expressServer.use(bodyParser.json());
+  
+  //Enable Cors
+  expressServer.use(cors());
   
   Object.keys(middlewares)
     .forEach((middleware) => {

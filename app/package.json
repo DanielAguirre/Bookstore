@@ -33,11 +33,13 @@
   },
   "dependencies": {
     "body-parser": "^1.17.0",
+    "cors": "^2.8.3",
     "express": "^4.14.1",
     "mongoose": "^4.8.5",
     "mongoose-currency": "^0.2.0",
     "pug": "^2.0.0-beta11"
   },
+  "proxy": "http://localhost:3001/",
   "jest": {
     "testEnvironment": "node",
     "collectCoverageFrom": [
