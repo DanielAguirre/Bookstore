@@ -3,5 +3,5 @@ MAINTAINER danter1@gmail.com
 
 ONBUILD RUN npm install nodemon -g
 
-WORKDIR ./app  
+WORKDIR ${pwd}/app  
 COPY app/ .
