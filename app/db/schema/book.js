@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
 // native promises
 mongoose.Promise = global.Promise;
 
-const bookSchema = new Schema({
+const bookSchema = new mongoose.Schema({
   title: { type: String, required: true },
   author: String,
   ISBN: { type: String, required: true, unique: true },
@@ -13,12 +12,11 @@ const bookSchema = new Schema({
   createdAt: Date,
 });
 
-
-bookSchema.virtual('date').get(function() {
+bookSchema.virtual('date').get(function () {
   const date = new Date(this.publication);
-  return `${date.getFullYear()}- ${date.getMonth() + 1}-${date.getDate()}`;
+  console.log(date);
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 });
 
-const Book = mongoose.model('Book', bookSchema);
+module.exports = mongoose.model('Book', bookSchema);
 
-module.exports = Book;
