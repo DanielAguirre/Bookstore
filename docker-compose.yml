@@ -1,5 +1,10 @@
 version: "2"
 
+volumes:
+  service_modules: 
+  mongo-data:
+    driver: local
+    
 services:
   ngnix:
     image: nginx
@@ -10,19 +15,20 @@ services:
     ports:
       - "80:80"
   bookstore:
+    container_name: bookstor_server
     build: .
-    command: sh -c 'npm run build &&  npm start'
-    ports: 
+    command: sh -c 'npm start'
+    ports:
       - "3001:3000"
     volumes:
       - ./app:/app
+      - /app/node_modules
     links:
       - MongoDB
     environment:
       DATABASE_URL: mongodb://MongoDB/books
+      PORT: 3000
   MongoDB:
     image: mongo:3.4.1
-    ports:
-      - "27017:27017"
     volumes:
-      - /data/mongodb/db:/data/db
+      - mongo-data:/data/db
